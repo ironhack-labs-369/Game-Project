@@ -3,6 +3,7 @@ class Game {
         this.backgroundImages;
         this.trunkImage;
         this.coinImage;
+        this.grassImages;
     }
     preload() {
         this.backgroundImages = [
@@ -12,7 +13,20 @@ class Game {
             { src: loadImage('assets/background/plx-4.png'), x: 0, speed: 1 },
             { src: loadImage('assets/background/plx-5.png'), x: 0, speed: 2 },
         ];
-        this.grassImage = loadImage('assets/background/jungle-grass.png');
+        this.grassImages = [
+            {
+                src: loadImage('assets/background/jungle-grass.png'),
+                x: 0,
+                y: 400,
+                speed: 0.5,
+            },
+            {
+                src: loadImage('assets/background/jungle-grass.png'),
+                x: 0,
+                y: 400,
+                speed: 0.5,
+            },
+        ];
         this.playerImage = loadImage('assets/player/playerImg.png');
         this.trunkImage = {
             src: loadImage('assets/objects/liana.png'),

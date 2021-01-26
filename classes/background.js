@@ -4,7 +4,7 @@ class Background {
     }
 
     draw() {
-        game.backgroundImages.forEach(function (img) {
+        game.backgroundImages.forEach((img) => {
             // here we use the speed property of the image instead of
             // a specific value so that every image moves at a different speed
             img.x -= img.speed;
@@ -18,7 +18,22 @@ class Background {
                 img.x = 0;
             }
         });
+        game.grassImages.forEach((img) => {
+            img.x -= img.speed;
+            img.y = 0;
+            image(img.src, img.x, height - height / 6, width, height / 6);
+            image(
+                img.src,
+                img.x + width,
+                height - height / 6,
+                width,
+                height / 6
+            );
+            if (img.x <= -width) {
+                img.x = 0;
+            }
+        });
 
-        image(game.grassImage, 0, height / 1.2, width, height);
+        // image(game.grassImage, 0, height / 1.2, width, height);
     }
 }

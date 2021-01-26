@@ -8,7 +8,7 @@ class Trunk {
         this.speed = 1.5;
     }
     setup() {
-        this.image.style('border-radius', '5px');
+        this.image.style('border-radius', '5px'); // it doesnt apply!!!
     }
     draw() {
         image(this.image.src, this.x, this.y, this.width, this.height);
