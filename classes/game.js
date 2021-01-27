@@ -37,13 +37,16 @@ class Game {
                 speed: 0.5,
             },
         ];
-        this.playerImage = loadImage('assets/player/playerImg.png');
+        this.playerImage = loadImage('assets/player/playerImg3.png');
         this.trunkImage = {
             src: loadImage('assets/objects/liana.png'),
         };
         this.coinImage = loadImage('assets/objects/coin.png');
         this.alligatorImage = {
             src: loadImage('assets/objects/alligator.png'),
+        };
+        this.conquistadoresImage = {
+            src: loadImage('assets/objects/conquistadores.png'),
         };
     }
     setup() {
@@ -52,6 +55,7 @@ class Game {
         this.trunks = [];
         this.coins = [];
         this.alligators = [];
+        this.conquistadores = [];
     }
     draw() {
         clear();
@@ -61,6 +65,10 @@ class Game {
             this.trunks.push(new Trunk(this.trunkImage));
             this.coins.push(new Coin(this.coinImage));
             this.alligators.push(new Alligator(this.alligatorImage));
+        } else if (frameCount % 1200 === 0) {
+            this.conquistadores.push(
+                new Conquistadores(this.conquistadoresImage)
+            );
         }
         this.trunks.forEach((trunk) => {
             trunk.draw();
@@ -71,6 +79,10 @@ class Game {
         if (this.background.ground == 'water') {
             this.alligators.forEach((alligator) => {
                 alligator.draw();
+            });
+        } else {
+            this.conquistadores.forEach((conq) => {
+                conq.draw();
             });
         }
 

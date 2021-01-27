@@ -1,7 +1,7 @@
 class Background {
     constructor() {
         this.mx = 0;
-        this.ground = 'grass';
+        this.ground;
     }
 
     draw() {
@@ -27,12 +27,13 @@ class Background {
             this.ground = 'grass';
             this.changeGround();
         }
+
+        // this.changeGround();
     }
 
     changeGround() {
         if (this.ground == 'grass') {
             game.grassImages.forEach((img) => {
-                this.ground = 'grass';
                 img.x -= img.speed;
                 img.y = 0;
                 image(img.src, img.x, height - height / 6, width, height / 6);
@@ -49,7 +50,6 @@ class Background {
             });
         } else {
             game.waterImages.forEach((img) => {
-                this.ground = 'water';
                 img.x -= img.speed;
                 img.y = 0;
                 image(img.src, img.x, height - height / 6, width, height / 6);
