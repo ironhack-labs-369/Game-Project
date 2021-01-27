@@ -13,18 +13,20 @@ class Coin {
     collision(playerInfo) {
         // console.log('collision', playerInfo);
         // get the middle of the coin
-        let coinX = this.x + this.width / 2;
-        let coinY = this.y + this.height / 2;
+        let coinX = this.x;
+        let coinY = this.y + this.height;
         // get the middle of the player
-        let playerX = playerInfo.x + playerInfo.width / 2;
-        let playerY = playerInfo.y + playerInfo.height / 2;
+        // let playerX = playerInfo.x + playerInfo.width ;
+        // let playerY = playerInfo.y + playerInfo.height;
+        let playerX = playerInfo.x;
+        let playerY = playerInfo.y;
         // use p5 dist() function to measure distance between two objects
         if (dist(coinX, coinY, playerX, playerY) > 30) {
             return false;
         } else {
             // collision was detected
             game.player.score += 10;
-            console.log('Collision! player score: ', game.player.energies);
+            console.log('Collision! player score: ', game.player.score);
             return true;
         }
     }

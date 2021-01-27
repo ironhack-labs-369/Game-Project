@@ -1,7 +1,8 @@
 class Player {
     constructor() {
-        this.energies = 0;
-        this.gravity = 0.5;
+        this.score = 0;
+        this.energies = 100;
+        this.gravity = 1.5;
         this.velocity = 0;
         this.width = 100;
         this.height = 140;
@@ -14,7 +15,7 @@ class Player {
     jump() {
         if (!this.jumping) {
             this.jumping = true;
-            this.velocity = -15;
+            this.velocity = -20;
         }
     }
     move() {
@@ -32,7 +33,7 @@ class Player {
         // checks if the player is over the trunk and makes it stay on top of it
         if (this.overObstacle && this.y >= this.overObstacle.y - this.height) {
             this.y = this.overObstacle.y - this.height;
-            // this.jumping = false;
+            this.jumping = false;
         }
         // this makes sure that player does not move out of the bottom of the screen
         if (this.y >= height - this.height - height / 6) {
@@ -44,8 +45,12 @@ class Player {
             // this.y = height - this.height - height / 6;
         }
 
-        let playerXConstrained = constrain(this.x, 0, width - this.width);
-        let playerYConstrained = constrain(this.y, 0, height - this.height);
+        // let playerXConstrained = constrain(
+        //     this.x,
+        //     0,
+        //     (width * 2) / 3 - this.width
+        // );
+        // let playerYConstrained = constrain(this.y, 0, height - this.height);
 
         // if (this.x > trunk.x && this.x < trunk.x + trunk.width) {
         //     yc = constrain(this.y, 0, game.trunk.y - this.height);
@@ -87,13 +92,23 @@ class Player {
         // });
 
         if (this.y < 1) {
-            this.gravity *= 1.5;
+            this.gravity *= 3;
+        }
+        if (this.x < 1) {
+            this.x = 1;
+        }
+        if (this.x > width) {
+            while (this.x > 0) {
+                this.x -= 1;
+            }
         }
 
         image(
             game.playerImage,
-            playerXConstrained,
-            playerYConstrained,
+            // playerXConstrained,
+            // playerYConstrained,
+            this.x,
+            this.y,
             this.width,
             this.height
         );

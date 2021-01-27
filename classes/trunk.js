@@ -2,10 +2,10 @@ class Trunk {
     constructor(image) {
         this.image = image;
         this.x = width;
-        this.y = random(180, 400);
+        this.y = random(200, 400);
         this.width = random(100, 200);
         this.height = 50;
-        this.speed = 1.5;
+        this.speed = 2.5;
     }
     setup() {
         this.image.style('border-radius', '5px'); // it doesnt apply!!!

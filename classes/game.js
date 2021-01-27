@@ -65,7 +65,10 @@ class Game {
             this.trunks.push(new Trunk(this.trunkImage));
             this.coins.push(new Coin(this.coinImage));
             this.alligators.push(new Alligator(this.alligatorImage));
-        } else if (frameCount % 1200 === 0) {
+        }
+        if (frameCount % 1200 === 0) {
+        }
+        if (frameCount % 1200 === 0) {
             this.conquistadores.push(
                 new Conquistadores(this.conquistadoresImage)
             );
