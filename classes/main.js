@@ -14,6 +14,7 @@ function draw() {
 function keyPressed() {
     if (keyCode === 32) {
         game.player.jump();
+        game.player.jumping = false;
     }
     if (keyCode === 39) {
         game.player.move();

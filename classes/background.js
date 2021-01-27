@@ -1,7 +1,7 @@
 class Background {
     constructor() {
         this.mx = 0;
-        this.ground;
+        this.ground = 'water';
     }
 
     draw() {
@@ -20,15 +20,15 @@ class Background {
             }
         });
 
-        if (frameCount % 300 == 0) {
-            this.ground = 'water';
-            this.changeGround();
-        } else {
-            this.ground = 'grass';
-            this.changeGround();
-        }
+        // if (frameCount % 300 == 0) {
+        //     this.ground = 'water';
+        //     this.changeGround();
+        // } else {
+        //     this.ground = 'grass';
+        //     this.changeGround();
+        // }
 
-        // this.changeGround();
+        this.changeGround();
     }
 
     changeGround() {

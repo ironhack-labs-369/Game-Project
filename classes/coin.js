@@ -24,7 +24,7 @@ class Coin {
         } else {
             // collision was detected
             game.player.score += 10;
-            console.log('Collision! player score: ', game.player.score);
+            console.log('Collision! player score: ', game.player.energies);
             return true;
         }
     }
