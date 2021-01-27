@@ -17,13 +17,23 @@ class Game {
             {
                 src: loadImage('assets/background/jungle-grass.png'),
                 x: 0,
-                y: 400,
                 speed: 0.5,
             },
             {
                 src: loadImage('assets/background/jungle-grass.png'),
                 x: 0,
-                y: 400,
+                speed: 0.5,
+            },
+        ];
+        this.waterImages = [
+            {
+                src: loadImage('assets/background/water.png'),
+                x: 0,
+                speed: 0.5,
+            },
+            {
+                src: loadImage('assets/background/water.png'),
+                x: 0,
                 speed: 0.5,
             },
         ];
@@ -32,12 +42,16 @@ class Game {
             src: loadImage('assets/objects/liana.png'),
         };
         this.coinImage = loadImage('assets/objects/coin.png');
+        this.alligatorImage = {
+            src: loadImage('assets/objects/alligator.png'),
+        };
     }
     setup() {
         this.player = new Player();
         this.background = new Background();
         this.trunks = [];
         this.coins = [];
+        this.alligators = [];
     }
     draw() {
         clear();
@@ -46,6 +60,7 @@ class Game {
         if (frameCount % 360 === 0) {
             this.trunks.push(new Trunk(this.trunkImage));
             this.coins.push(new Coin(this.coinImage));
+            this.alligators.push(new Alligator(this.alligatorImage));
         }
         this.trunks.forEach((trunk) => {
             trunk.draw();
@@ -53,6 +68,11 @@ class Game {
         this.coins.forEach((coin) => {
             coin.draw();
         });
+        if (this.background.ground == 'water') {
+            this.alligators.forEach((alligator) => {
+                alligator.draw();
+            });
+        }
 
         // remove coins
         this.coins = this.coins.filter((coin) => {

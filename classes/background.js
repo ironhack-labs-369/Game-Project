@@ -1,6 +1,7 @@
 class Background {
     constructor() {
         this.mx = 0;
+        this.ground = 'grass';
     }
 
     draw() {
@@ -18,22 +19,51 @@ class Background {
                 img.x = 0;
             }
         });
-        game.grassImages.forEach((img) => {
-            img.x -= img.speed;
-            img.y = 0;
-            image(img.src, img.x, height - height / 6, width, height / 6);
-            image(
-                img.src,
-                img.x + width,
-                height - height / 6,
-                width,
-                height / 6
-            );
-            if (img.x <= -width) {
-                img.x = 0;
-            }
-        });
 
-        // image(game.grassImage, 0, height / 1.2, width, height);
+        if (frameCount % 300 == 0) {
+            this.ground = 'water';
+            this.changeGround();
+        } else {
+            this.ground = 'grass';
+            this.changeGround();
+        }
+    }
+
+    changeGround() {
+        if (this.ground == 'grass') {
+            game.grassImages.forEach((img) => {
+                this.ground = 'grass';
+                img.x -= img.speed;
+                img.y = 0;
+                image(img.src, img.x, height - height / 6, width, height / 6);
+                image(
+                    img.src,
+                    img.x + width,
+                    height - height / 6,
+                    width,
+                    height / 6
+                );
+                if (img.x <= -width) {
+                    img.x = 0;
+                }
+            });
+        } else {
+            game.waterImages.forEach((img) => {
+                this.ground = 'water';
+                img.x -= img.speed;
+                img.y = 0;
+                image(img.src, img.x, height - height / 6, width, height / 6);
+                image(
+                    img.src,
+                    img.x + width,
+                    height - height / 6,
+                    width,
+                    height / 6
+                );
+                if (img.x <= -width) {
+                    img.x = 0;
+                }
+            });
+        }
     }
 }
