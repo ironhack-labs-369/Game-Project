@@ -48,6 +48,7 @@ class Game {
         this.conquistadoresImage = {
             src: loadImage('assets/objects/conquistadores.png'),
         };
+        this.heartImage = loadImage('assets/objects/heart.png');
     }
     setup() {
         this.player = new Player();
@@ -58,6 +59,7 @@ class Game {
         this.conquistadores = [];
     }
     draw() {
+        /// MAIN CANVAS
         clear();
         this.background.draw();
         this.player.draw();
@@ -86,6 +88,9 @@ class Game {
         } else {
             this.conquistadores.forEach((conq) => {
                 conq.draw();
+                if (conq.collision(this.player)) {
+                    console.log('ahhhhrgh!!');
+                }
             });
         }
 
@@ -99,5 +104,33 @@ class Game {
                 return true;
             }
         });
+        // this.conquistadores = this.conquistadores.map((conqui) => {
+        //     if (conqui.collision(this.player)) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // });
+
+        // collision with conquistadores
+        // if (conquistadores.collision(this.player)) {
+        //     this.player.energies -= 10;
+        // }
+
+        /// SCORE BOARD
+
+        scoreBoard.image(this.coinImage, 30, 10, 30, 30);
+        scoreBoard.textSize(20);
+        scoreBoard.text(this.player.score, 100, 30);
+        scoreBoard.image(this.heartImage, 30, 50, 30, 30);
+        scoreBoard.noStroke();
+        scoreBoard.fill('#0f0');
+        scoreBoard.energyLevel = map(this.player.energies, 80, 230, 100, 0);
+        // scoreBoard.rect(80, 55, 150, 20);
+        scoreBoard.push();
+        scoreBoard.strokeWeight(20);
+        scoreBoard.stroke('#0f0');
+        scoreBoard.line(100, 65, 200 + scoreBoard.energyLevel, 65);
+        scoreBoard.pop();
     }
 }

@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.score = 0;
-        this.energies = 100;
+        this.energies = 200;
         this.gravity = 1.5;
         this.velocity = 0;
         this.width = 100;
@@ -17,6 +17,7 @@ class Player {
             this.jumping = true;
             this.velocity = -20;
         }
+        this.x += 10;
     }
     move() {
         this.x += 100;
@@ -34,15 +35,13 @@ class Player {
         if (this.overObstacle && this.y >= this.overObstacle.y - this.height) {
             this.y = this.overObstacle.y - this.height;
             this.jumping = false;
+            this.gravity = 0.5;
         }
         // this makes sure that player does not move out of the bottom of the screen
-        if (this.y >= height - this.height - height / 6) {
+        if (this.y >= this.ground) {
             this.y = this.ground;
             this.jumping = false;
-
             this.gravity = 0.5;
-            // this is the starting y of the player
-            // this.y = height - this.height - height / 6;
         }
 
         // let playerXConstrained = constrain(
@@ -55,62 +54,44 @@ class Player {
         // if (this.x > trunk.x && this.x < trunk.x + trunk.width) {
         //     yc = constrain(this.y, 0, game.trunk.y - this.height);
         // }
+
         game.trunks.forEach((trunk) => {
             if (
                 // condition for 'player is above the obstacle
                 this.x + this.width >= trunk.x &&
                 this.x <= trunk.x + trunk.width &&
                 this.y - this.height < trunk.y + trunk.height
-                // and
             ) {
                 // this.y = trunk.y - this.height - 5;
                 // this.ground = trunk.y + trunk.height + this.height
                 this.overObstacle = trunk;
-
-                // console.log(this.ground);
             } else {
                 // this.ground = height - this.height - height / 6;
                 this.overObstacle = false;
             }
+
+            if (
+                // condition for 'player is above the obstacle
+                this.x + this.width >= trunk.x &&
+                this.x <= trunk.x + trunk.width &&
+                this.y - this.height >= trunk.y + trunk.height
+            ) {
+            }
         });
 
-        // if (
-        //         yc <= trunk.y - this.height &&
-        //         xc > trunk.x - this.width &&
-        //         xc < trunk.x + trunk.width
-        //     ) {
-        //         console.log(
-        //             'higher than trunk',
-        //             this.y <= trunk.y - this.height
-        //         );
-        //         console.log(
-        //             'in the trunk width',
-        //             this.x > trunk.x && this.x < trunk.x + trunk.width
-        //         );
-        //         yc = trunk.y - this.height - 5;
-        //     }
-        // });
-
+        // bounces the player back when it hits the top
         if (this.y < 1) {
             this.gravity *= 3;
         }
-        if (this.x < 1) {
+        // restarts from the beginning when going forward
+        if (this.x < 1 || this.x > width) {
             this.x = 1;
         }
-        if (this.x > width) {
-            while (this.x > 0) {
-                this.x -= 1;
-            }
-        }
 
-        image(
-            game.playerImage,
-            // playerXConstrained,
-            // playerYConstrained,
-            this.x,
-            this.y,
-            this.width,
-            this.height
-        );
+        /// collision with conquistadores
+        // if (game.conquistadores.collision(this.player)) {
+        //     this.energies -= 10;
+        // }
+        image(game.playerImage, this.x, this.y, this.width, this.height);
     }
 }
