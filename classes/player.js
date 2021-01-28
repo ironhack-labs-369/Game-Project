@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.score = 0;
-        this.energies = -100;
+        this.energies = 0;
         this.gravity = 1.5;
         this.velocity = 0;
         this.width = 100;
@@ -11,6 +11,7 @@ class Player {
         this.ground = height - this.height - height / 6;
         this.jumping;
         this.overObstacle = false;
+        this.underObstacle = false;
     }
     jump() {
         if (!this.jumping) {
@@ -25,14 +26,34 @@ class Player {
     moveBack() {
         this.x -= 25;
     }
+    checkEnergies() {
+        if (this.energies >= 5) {
+            console.log('You died');
+            // reset();
+        }
+    }
     draw() {
         // this gets higher with every loop
         this.velocity += this.gravity;
+
         // this pushes the player down => gravity
         this.y += this.velocity;
 
+        // this makes sure the player does not go through the trunk when under the trunk and jumping
+        if (
+            this.underObstacle &&
+            this.y <= this.underObstacle.y + this.underObstacle.height &&
+            this.jumping
+        ) {
+            this.y = this.underObstacle.y + this.underObstacle.height;
+            this.velocity = 1;
+        }
         // checks if the player is over the trunk and makes it stay on top of it
-        if (this.overObstacle && this.y >= this.overObstacle.y - this.height) {
+        if (
+            !this.underObstacle &&
+            this.overObstacle &&
+            this.y >= this.overObstacle.y - this.height
+        ) {
             this.y = this.overObstacle.y - this.height;
             this.jumping = false;
             this.gravity = 0.5;
@@ -65,9 +86,20 @@ class Player {
                 // this.y = trunk.y - this.height - 5;
                 // this.ground = trunk.y + trunk.height + this.height
                 this.overObstacle = trunk;
+                this.x -= trunk.speed;
             } else {
                 // this.ground = height - this.height - height / 6;
                 this.overObstacle = false;
+            }
+            // condition for if the player is under the obstacle
+            if (
+                this.x + this.width >= trunk.x &&
+                this.x <= trunk.x + trunk.width &&
+                this.y > trunk.y - trunk.height
+            ) {
+                this.underObstacle = trunk;
+            } else {
+                this.underObstacle = false;
             }
         });
 
@@ -75,15 +107,11 @@ class Player {
         if (this.y < 1) {
             this.gravity *= 3;
         }
-        // restarts from the beginning when going forward
+        // restarts from the beginning of screen when going too forward
         if (this.x < 1 || this.x > width) {
             this.x = 1;
         }
 
-        /// collision with conquistadores
-        // if (game.conquistadores.collision(this.player)) {
-        //     this.energies -= 10;
-        // }
         image(game.playerImage, this.x, this.y, this.width, this.height);
     }
 }

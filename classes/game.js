@@ -89,7 +89,13 @@ class Game {
             this.conquistadores.forEach((conq) => {
                 conq.draw();
                 if (conq.collision(this.player)) {
-                    console.log('ahhhhrgh!!');
+                    game.player.energies += 0.5;
+                    game.player.jump();
+                    console.log(
+                        'Collision! player energies: ',
+                        game.player.energies
+                    );
+                    game.player.checkEnergies();
                 }
             });
         }
@@ -113,7 +119,7 @@ class Game {
         scoreBoard.image(this.heartImage, 30, 50, 30, 30);
         scoreBoard.noStroke();
         scoreBoard.fill('#0f0');
-        scoreBoard.energyLevel = map(this.player.energies, 80, 230, 100, 0);
+        scoreBoard.energyLevel = map(this.player.energies, 100, 200, 100, 0);
         scoreBoard.push();
         scoreBoard.strokeWeight(20);
         scoreBoard.stroke('#0f0');

@@ -16,13 +16,13 @@ function draw() {
     image(scoreBoard, 0, 0);
 }
 function keyPressed() {
-    if (keyCode === 32) {
+    if (keyCode === UP_ARROW) {
         game.player.jump();
     }
-    if (keyCode === 39) {
+    if (keyCode === RIGHT_ARROW) {
         game.player.move();
     }
-    if (keyCode === 37) {
+    if (keyCode === LEFT_ARROW) {
         game.player.moveBack();
     }
 }
