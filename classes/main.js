@@ -1,4 +1,6 @@
 const game = new Game();
+const modal = document.querySelector('modal');
+const button = document.querySelector('reset-btn');
 
 function preload() {
     game.preload();
@@ -6,7 +8,6 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     scoreBoard = createGraphics(300, 100);
-    scoreBoard.background('#000');
     scoreBoard.clear();
 
     game.setup();

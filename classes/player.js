@@ -12,7 +12,9 @@ class Player {
         this.jumping;
         this.overObstacle = false;
         this.underObstacle = false;
+        this.modal;
     }
+    setup() {}
     jump() {
         if (!this.jumping) {
             this.jumping = true;
@@ -26,13 +28,21 @@ class Player {
     moveBack() {
         this.x -= 25;
     }
+    showModal() {
+        modal.className += ' on';
+        button.addEventListener('click', () => {
+            window.location.reload();
+        });
+    }
     checkEnergies() {
         if (this.energies <= 0) {
             console.log('You died');
-            window.location.reload();
+            this.showModal();
         }
     }
     draw() {
+        console.log('modal', modal);
+        console.log('button', button);
         // this gets higher with every loop
         this.velocity += this.gravity;
 

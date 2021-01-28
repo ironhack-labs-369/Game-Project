@@ -111,7 +111,7 @@ class Game {
                     game.player.jump();
                     console.log(
                         'Collision! player energies: ',
-                        game.player.energies.toFixed(2)
+                        game.player.energies
                     );
                     game.player.checkEnergies();
                 }
