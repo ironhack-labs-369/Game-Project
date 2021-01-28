@@ -27,9 +27,9 @@ class Player {
         this.x -= 25;
     }
     checkEnergies() {
-        if (this.energies >= 5) {
+        if (this.energies >= -10) {
             console.log('You died');
-            // reset();
+            window.location.reload();
         }
     }
     draw() {
