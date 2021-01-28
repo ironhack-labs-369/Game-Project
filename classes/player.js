@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.score = 0;
-        this.energies = 200;
+        this.energies = -100;
         this.gravity = 1.5;
         this.velocity = 0;
         this.width = 100;
@@ -68,14 +68,6 @@ class Player {
             } else {
                 // this.ground = height - this.height - height / 6;
                 this.overObstacle = false;
-            }
-
-            if (
-                // condition for 'player is above the obstacle
-                this.x + this.width >= trunk.x &&
-                this.x <= trunk.x + trunk.width &&
-                this.y - this.height >= trunk.y + trunk.height
-            ) {
             }
         });
 

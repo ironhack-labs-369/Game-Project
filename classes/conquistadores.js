@@ -10,7 +10,7 @@ class Conquistadores {
     collision(playerInfo) {
         // console.log('collision', playerInfo);
         // get the middle of the conquistadores
-        let conquistadoresX = this.x + this.width / 2;
+        let conquistadoresX = this.x;
         let conquistadoresY = this.y;
         let playerX = playerInfo.x;
         let playerY = playerInfo.y + playerInfo.height;
@@ -21,13 +21,25 @@ class Conquistadores {
         );
 
         // use p5 dist() function to measure distance between two objects
-        if (dist(conquistadoresX, conquistadoresY, playerX, playerY) > 150) {
-            return false;
-        } else {
-            // collision was detected
-            game.player.energies -= 10;
+        // if (dist(conquistadoresX, conquistadoresY, playerX, playerY) > 150) {
+        //     return false;
+        // } else {
+        //     // collision was detected
+        //     game.player.energies -= 1;
+        //     game.player.jump();
+        //     console.log('Collision! player energies: ', game.player.energies);
+        //     return true;
+        // }
+
+        if (
+            // condition for 'player is above the obstacle
+            game.player.x + game.player.width >= this.x &&
+            game.player.x <= this.x + this.width &&
+            game.player.y - game.player.height < this.y + this.height
+        ) {
+            game.player.energies -= 1;
+            game.player.jump();
             console.log('Collision! player energies: ', game.player.energies);
-            return true;
         }
     }
     draw() {

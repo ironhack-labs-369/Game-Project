@@ -104,18 +104,6 @@ class Game {
                 return true;
             }
         });
-        // this.conquistadores = this.conquistadores.map((conqui) => {
-        //     if (conqui.collision(this.player)) {
-        //         return false;
-        //     } else {
-        //         return true;
-        //     }
-        // });
-
-        // collision with conquistadores
-        // if (conquistadores.collision(this.player)) {
-        //     this.player.energies -= 10;
-        // }
 
         /// SCORE BOARD
 
@@ -126,11 +114,10 @@ class Game {
         scoreBoard.noStroke();
         scoreBoard.fill('#0f0');
         scoreBoard.energyLevel = map(this.player.energies, 80, 230, 100, 0);
-        // scoreBoard.rect(80, 55, 150, 20);
         scoreBoard.push();
         scoreBoard.strokeWeight(20);
         scoreBoard.stroke('#0f0');
-        scoreBoard.line(100, 65, 200 + scoreBoard.energyLevel, 65);
+        scoreBoard.line(100, 65, scoreBoard.energyLevel, 65);
         scoreBoard.pop();
     }
 }
