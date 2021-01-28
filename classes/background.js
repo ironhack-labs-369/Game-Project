@@ -1,7 +1,7 @@
 class Background {
     constructor() {
         this.mx = 0;
-        this.ground = 'water';
+        this.ground = 'grass';
     }
 
     draw() {
@@ -20,17 +20,13 @@ class Background {
             }
         });
 
-        let ml = millis();
-        // console.log('ml', ml);
-        if (ml % 300000 == 0) {
-            this.ground = 'water';
-            this.changeGround();
-        } else {
-            this.ground = 'grass';
-            this.changeGround();
-        }
-
         this.changeGround();
+
+        // setInterval(() => {
+        //     if (this.ground == 'grass') this.ground = 'water';
+        //     else if (this.ground == 'water') this.ground = 'grass';
+        //     this.changeGround();
+        // }, 10000);
     }
 
     changeGround() {
@@ -50,7 +46,7 @@ class Background {
                     img.x = 0;
                 }
             });
-        } else {
+        } else if (this.ground == 'water') {
             game.waterImages.forEach((img) => {
                 img.x -= img.speed;
                 img.y = 0;

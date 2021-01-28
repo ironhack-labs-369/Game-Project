@@ -107,7 +107,7 @@ class Game {
             this.conquistadores.forEach((conq) => {
                 conq.draw();
                 if (conq.collision(this.player)) {
-                    game.player.energies -= 0.2;
+                    game.player.energies -= 2;
                     game.player.jump();
                     console.log(
                         'Collision! player energies: ',
@@ -138,7 +138,7 @@ class Game {
         scoreBoard.image(this.heartImage, 30, 50, 30, 30);
         scoreBoard.noStroke();
         scoreBoard.fill('#0f0');
-        scoreBoard.energyLevel = map(this.player.energies, 0, 10, 100, 200);
+        scoreBoard.energyLevel = map(this.player.energies, 0, 100, 100, 200);
         scoreBoard.push();
         scoreBoard.strokeWeight(20);
         scoreBoard.stroke('#0f0');
