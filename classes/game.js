@@ -42,13 +42,11 @@ class Game {
             src: loadImage('assets/objects/liana.png'),
         };
         this.coinImage = loadImage('assets/objects/coin.png');
-        this.alligatorImage = {
-            src: loadImage('assets/objects/alligator.png'),
-        };
-        this.conquistadoresImage = {
-            src: loadImage('assets/objects/conquistadores.png'),
-        };
-        this.heartImage = loadImage('assets/objects/heart.png');
+        (this.alligatorImage = loadImage('assets/objects/alligator.png')),
+            (this.conquistadoresImage = loadImage(
+                'assets/objects/conquistadores.png'
+            )),
+            (this.heartImage = loadImage('assets/objects/heart.png'));
     }
     setup() {
         this.player = new Player();

@@ -27,7 +27,7 @@ class Player {
         this.x -= 25;
     }
     checkEnergies() {
-        if (this.energies <= 0) {
+        if (this.energies === 0) {
             console.log('You died');
             window.location.reload();
         }

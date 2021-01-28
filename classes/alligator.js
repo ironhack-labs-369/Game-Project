@@ -8,7 +8,7 @@ class Alligator {
         this.speed = 1.5;
     }
     draw() {
-        image(this.image.src, this.x, this.y, this.width, this.height);
+        image(this.image, this.x, this.y, this.width, this.height);
         this.x -= this.speed;
     }
 }
