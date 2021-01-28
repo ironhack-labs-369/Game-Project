@@ -20,13 +20,15 @@ class Background {
             }
         });
 
-        // if (frameCount % 300 == 0) {
-        //     this.ground = 'water';
-        //     this.changeGround();
-        // } else {
-        //     this.ground = 'grass';
-        //     this.changeGround();
-        // }
+        let ml = millis();
+        // console.log('ml', ml);
+        if (ml % 300000 == 0) {
+            this.ground = 'water';
+            this.changeGround();
+        } else {
+            this.ground = 'grass';
+            this.changeGround();
+        }
 
         this.changeGround();
     }

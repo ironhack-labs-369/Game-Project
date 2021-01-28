@@ -111,8 +111,9 @@ class Game {
 
         /// SCORE BOARD
 
+        scoreBoard.clear();
         scoreBoard.image(this.coinImage, 30, 10, 30, 30);
-        scoreBoard.textSize(20);
+        scoreBoard.textSize(30);
         scoreBoard.text(this.player.score, 100, 30);
         scoreBoard.image(this.heartImage, 30, 50, 30, 30);
         scoreBoard.noStroke();
@@ -122,6 +123,7 @@ class Game {
         scoreBoard.strokeWeight(20);
         scoreBoard.stroke('#0f0');
         scoreBoard.line(100, 65, scoreBoard.energyLevel, 65);
+        console.log('level', scoreBoard.energyLevel);
         scoreBoard.pop();
     }
 }
