@@ -29,8 +29,9 @@ class Player {
         this.x -= 25;
     }
     showModal() {
-        modal.className += ' on';
-        button.addEventListener('click', () => {
+        document.querySelector('.modal').classList.add('on');
+
+        document.querySelector('.reset-btn').addEventListener('click', () => {
             window.location.reload();
         });
     }
@@ -41,8 +42,6 @@ class Player {
         }
     }
     draw() {
-        console.log('modal', modal);
-        console.log('button', button);
         // this gets higher with every loop
         this.velocity += this.gravity;
 

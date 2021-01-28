@@ -1,6 +1,4 @@
 const game = new Game();
-const modal = document.querySelector('modal');
-const button = document.querySelector('reset-btn');
 
 function preload() {
     game.preload();
