@@ -1,7 +1,7 @@
 class Player {
     constructor() {
         this.score = 0;
-        this.energies = 0;
+        this.energies = 10;
         this.gravity = 1.5;
         this.velocity = 0;
         this.width = 100;
@@ -16,7 +16,7 @@ class Player {
     jump() {
         if (!this.jumping) {
             this.jumping = true;
-            this.velocity = -20;
+            this.velocity = -18;
         }
         this.x += 10;
     }
@@ -27,7 +27,7 @@ class Player {
         this.x -= 25;
     }
     checkEnergies() {
-        if (this.energies >= -10) {
+        if (this.energies <= 0) {
             console.log('You died');
             window.location.reload();
         }
@@ -64,17 +64,6 @@ class Player {
             this.jumping = false;
             this.gravity = 0.5;
         }
-
-        // let playerXConstrained = constrain(
-        //     this.x,
-        //     0,
-        //     (width * 2) / 3 - this.width
-        // );
-        // let playerYConstrained = constrain(this.y, 0, height - this.height);
-
-        // if (this.x > trunk.x && this.x < trunk.x + trunk.width) {
-        //     yc = constrain(this.y, 0, game.trunk.y - this.height);
-        // }
 
         game.trunks.forEach((trunk) => {
             if (

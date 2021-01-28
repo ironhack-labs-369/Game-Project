@@ -9,8 +9,8 @@ class Coin {
     }
 
     collision(playerInfo) {
-        let coinX = this.x;
-        let coinY = this.y + this.height;
+        let coinX = this.x + this.width / 2;
+        let coinY = this.y + this.height / 2;
         // get the middle of the player
         // let playerX = playerInfo.x + playerInfo.width ;
         // let playerY = playerInfo.y + playerInfo.height;

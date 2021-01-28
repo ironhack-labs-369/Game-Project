@@ -16,7 +16,7 @@ function draw() {
     image(scoreBoard, 0, 0);
 }
 function keyPressed() {
-    if (keyCode === UP_ARROW) {
+    if (keyCode === UP_ARROW || keyCode === 32) {
         game.player.jump();
     }
     if (keyCode === RIGHT_ARROW) {

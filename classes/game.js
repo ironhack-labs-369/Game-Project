@@ -89,11 +89,11 @@ class Game {
             this.conquistadores.forEach((conq) => {
                 conq.draw();
                 if (conq.collision(this.player)) {
-                    game.player.energies -= 0.5;
+                    game.player.energies -= 0.2;
                     game.player.jump();
                     console.log(
                         'Collision! player energies: ',
-                        game.player.energies
+                        game.player.energies.toFixed(2)
                     );
                     game.player.checkEnergies();
                 }
