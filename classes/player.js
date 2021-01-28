@@ -27,7 +27,7 @@ class Player {
         this.x -= 25;
     }
     checkEnergies() {
-        if (this.energies === 0) {
+        if (this.energies <= 0) {
             console.log('You died');
             window.location.reload();
         }
@@ -70,7 +70,7 @@ class Player {
                 // condition for 'player is above the obstacle
                 this.x + this.width >= trunk.x &&
                 this.x <= trunk.x + trunk.width &&
-                this.y - this.height < trunk.y + trunk.height
+                this.y + this.height < trunk.y + trunk.height
             ) {
                 // this.y = trunk.y - this.height - 5;
                 // this.ground = trunk.y + trunk.height + this.height
