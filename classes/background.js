@@ -1,7 +1,7 @@
 class Background {
     constructor() {
         this.mx = 0;
-        this.ground = 'grass';
+        this.ground = 'water';
     }
 
     draw() {
