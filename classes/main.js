@@ -4,8 +4,8 @@ function preload() {
     game.preload();
 }
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    // canvas.parent('canvas');
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('canvas');
     scoreBoard = createGraphics(300, 100);
     scoreBoard.clear();
 
