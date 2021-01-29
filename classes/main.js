@@ -5,7 +5,7 @@ function preload() {
 }
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('canvas');
+    // canvas.parent('canvas');
     scoreBoard = createGraphics(300, 100);
     scoreBoard.clear();
 
