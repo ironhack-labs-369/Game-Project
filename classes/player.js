@@ -38,7 +38,6 @@ class Player {
     checkEnergies() {
         if (this.energies <= 0) {
             console.log('You died');
-            // remove();
             this.showModal();
         }
     }

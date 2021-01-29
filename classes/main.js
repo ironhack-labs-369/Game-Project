@@ -11,6 +11,7 @@ function setup() {
     game.setup();
 }
 function draw() {
+    clear();
     // preventDefault();
     game.draw();
     image(scoreBoard, 0, 0);
