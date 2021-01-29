@@ -11,6 +11,7 @@ function setup() {
     game.setup();
 }
 function draw() {
+    // preventDefault();
     game.draw();
     image(scoreBoard, 0, 0);
 }
@@ -24,4 +25,9 @@ function keyPressed() {
     if (keyCode === LEFT_ARROW) {
         game.player.moveBack();
     }
+}
+function startGame() {
+    document.querySelector('.btn').addEventListener('click', () => {
+        draw();
+    });
 }

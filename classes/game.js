@@ -78,6 +78,7 @@ class Game {
     }
     draw() {
         /// MAIN CANVAS
+
         clear();
         this.background.draw();
         this.player.draw();
@@ -86,8 +87,7 @@ class Game {
             this.coins.push(new Coin(this.coinImage));
             this.alligators.push(new Alligator(this.alligatorImage));
         }
-        if (frameCount % 1200 === 0) {
-        }
+
         if (frameCount % 1200 === 0) {
             this.conquistadores.push(
                 new Conquistadores(this.conquistadoresImage)

@@ -1,6 +1,32 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+header {
+    background-image: url(./assets/background/rumble-jungle.png);
+    background-position: 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #f0f;
+}
+.btn {
+    width: auto;
+    height: 3rem;
+    border-radius: 50px;
+    background-color: #1f7a1f;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
 .modal {
     display: none;
-    /* display: block; */
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -18,6 +44,7 @@
     background-image: url(./assets/objects/coin.png);
     background-position: center center;
     background-size: cover;
+    color: #0f0;
     border-radius: 20px;
     margin: 15% auto;
     padding: 20px 20px 20px 50px;
@@ -29,12 +56,6 @@
 .reset-btn {
     width: 8rem;
     height: 2rem;
-    border-radius: 50px;
-    background-color: #0f0;
-    color: #0f0;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 h3 {
