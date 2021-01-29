@@ -8,75 +8,65 @@ class Game {
     preload() {
         this.backgroundImages = [
             {
-                src: loadImage('game-project/assets/background/plx-1.png'),
+                src: loadImage('./assets/background/plx-1.png'),
                 x: 0,
                 speed: 0,
             },
             {
-                src: loadImage('game-project/assets/background/plx-2.png'),
+                src: loadImage('./assets/background/plx-2.png'),
                 x: 0,
                 speed: 0.5,
             },
             {
-                src: loadImage('game-project/assets/background/plx-3.png'),
+                src: loadImage('./assets/background/plx-3.png'),
                 x: 0,
                 speed: 0.5,
             },
             {
-                src: loadImage('game-project/assets/background/plx-4.png'),
+                src: loadImage('./assets/background/plx-4.png'),
                 x: 0,
                 speed: 1,
             },
             {
-                src: loadImage('game-project/assets/background/plx-5.png'),
+                src: loadImage('./assets/background/plx-5.png'),
                 x: 0,
                 speed: 2,
             },
         ];
         this.grassImages = [
             {
-                src: loadImage(
-                    'game-project/assets/background/jungle-grass.png'
-                ),
+                src: loadImage('./assets/background/jungle-grass.png'),
                 x: 0,
                 speed: 0.5,
             },
             {
-                src: loadImage(
-                    'game-project/assets/background/jungle-grass.png'
-                ),
+                src: loadImage('./assets/background/jungle-grass.png'),
                 x: 0,
                 speed: 0.5,
             },
         ];
         this.waterImages = [
             {
-                src: loadImage('game-project/assets/background/water.png'),
+                src: loadImage('./assets/background/water.png'),
                 x: 0,
                 speed: 0.5,
             },
             {
-                src: loadImage('game-project/assets/background/water.png'),
+                src: loadImage('./assets/background/water.png'),
                 x: 0,
                 speed: 0.5,
             },
         ];
-        this.playerImage = loadImage(
-            'game-project/assets/player/playerImg3.png'
-        );
+        this.playerImage = loadImage('./assets/player/playerImg3.png');
         this.trunkImage = {
-            src: loadImage('game-project/assets/objects/liana.png'),
+            src: loadImage('./assets/objects/liana.png'),
         };
-        this.coinImage = loadImage('game-project/assets/objects/coin.png');
-        (this.alligatorImage = loadImage(
-            'game-project/assets/objects/alligator.png'
-        )),
+        this.coinImage = loadImage('./assets/objects/coin.png');
+        (this.alligatorImage = loadImage('./assets/objects/alligator.png')),
             (this.conquistadoresImage = loadImage(
-                'game-project/assets/objects/conquistadores.png'
+                './assets/objects/conquistadores.png'
             )),
-            (this.heartImage = loadImage(
-                'game-project/assets/objects/heart.png'
-            ));
+            (this.heartImage = loadImage('./assets/objects/heart.png'));
     }
     setup() {
         this.player = new Player();
