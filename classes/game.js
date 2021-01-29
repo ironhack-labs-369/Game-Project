@@ -134,11 +134,11 @@ class Game {
         scoreBoard.clear();
         scoreBoard.image(this.coinImage, 30, 10, 30, 30);
         scoreBoard.textSize(30);
-        scoreBoard.text(this.player.score, 100, 30);
+        scoreBoard.text(this.player.score, 100, 35);
         scoreBoard.image(this.heartImage, 30, 50, 30, 30);
         scoreBoard.noStroke();
         scoreBoard.fill('#0f0');
-        scoreBoard.energyLevel = map(this.player.energies, 0, 100, 100, 200);
+        scoreBoard.energyLevel = map(this.player.energies, 0, 100, 120, 200);
         scoreBoard.push();
         scoreBoard.strokeWeight(20);
         scoreBoard.stroke('#0f0');
