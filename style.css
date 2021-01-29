@@ -25,6 +25,9 @@ header {
     cursor: pointer;
     margin-bottom: 2rem;
 }
+.hidden {
+    display: none;
+}
 .modal {
     display: none;
     /* display: block; */

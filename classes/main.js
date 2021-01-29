@@ -4,7 +4,8 @@ function preload() {
     game.preload();
 }
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    let canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('canvas');
     scoreBoard = createGraphics(300, 100);
     scoreBoard.clear();
 
@@ -29,6 +30,8 @@ function keyPressed() {
 }
 function startGame() {
     document.querySelector('.btn').addEventListener('click', () => {
+        document.querySelector('#canvas').classList.remove('hidden');
+        document.querySelector('header').classList.add('hidden');
         draw();
     });
 }
