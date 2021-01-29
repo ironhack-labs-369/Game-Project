@@ -3,32 +3,6 @@ class Background {
         this.mx = 0;
         this.ground = 'grass';
     }
-
-    draw() {
-        game.backgroundImages.forEach((img) => {
-            // here we use the speed property of the image instead of
-            // a specific value so that every image moves at a different speed
-            img.x -= img.speed;
-            img.y = height / 6;
-            image(img.src, img.x, 0, width, height - img.y);
-            // this puts a second image after the first
-            image(img.src, img.x + width, 0, width, height - img.y);
-            // if the image leaves the screen we set it back to it's starting
-            // position
-            if (img.x <= -width) {
-                img.x = 0;
-            }
-        });
-
-        this.changeGround();
-
-        // setInterval(() => {
-        //     if (this.ground == 'grass') this.ground = 'water';
-        //     else if (this.ground == 'water') this.ground = 'grass';
-        //     this.changeGround();
-        // }, 10000);
-    }
-
     changeGround() {
         if (this.ground == 'grass') {
             game.grassImages.forEach((img) => {
@@ -63,5 +37,37 @@ class Background {
                 }
             });
         }
+    }
+
+    draw() {
+        game.backgroundImages.forEach((img) => {
+            // here we use the speed property of the image instead of
+            // a specific value so that every image moves at a different speed
+            img.x -= img.speed;
+            img.y = height / 6;
+            image(img.src, img.x, 0, width, height - img.y);
+            // this puts a second image after the first
+            image(img.src, img.x + width, 0, width, height - img.y);
+            // if the image leaves the screen we set it back to it's starting
+            // position
+            if (img.x <= -width) {
+                img.x = 0;
+            }
+        });
+
+        this.changeGround();
+
+        // if (frameCount % 10000 == 0) {
+        //     if (this.ground == 'grass') this.ground = 'water';
+        //     else if (this.ground == 'water') this.ground = 'grass';
+        //     this.changeGround();
+        //     frameCount = 0;
+        // }
+
+        // setTimeout(() => {
+        //     if (this.ground == 'grass') this.ground = 'water';
+        //     else if (this.ground == 'water') this.ground = 'grass';
+        //     this.changeGround();
+        // }, 10000);
     }
 }
