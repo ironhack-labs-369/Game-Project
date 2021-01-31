@@ -3,6 +3,17 @@ class Background {
         this.mx = 0;
         this.ground = 'grass';
     }
+    // if (frameCount % 10000 == 0) {
+    //     if (this.ground == 'grass') {
+    //         this.ground = 'water';
+    //         noLoop();
+    //     } else if (this.ground == 'water') {
+    //         this.ground = 'grass';
+    //         noLoop();
+    //     }
+    //     this.changeGround();
+    //     frameCount = 0;
+    // }
     changeGround() {
         if (this.ground == 'grass') {
             game.grassImages.forEach((img) => {
@@ -56,13 +67,6 @@ class Background {
         });
 
         this.changeGround();
-
-        // if (frameCount % 10000 == 0) {
-        //     if (this.ground == 'grass') this.ground = 'water';
-        //     else if (this.ground == 'water') this.ground = 'grass';
-        //     this.changeGround();
-        //     frameCount = 0;
-        // }
 
         // setTimeout(() => {
         //     if (this.ground == 'grass') this.ground = 'water';
